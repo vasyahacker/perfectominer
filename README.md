@@ -1,4 +1,4 @@
-# Perfeco Miner
-![logo.jpg](PerfectoMiner)
+# Perfecto Miner
+![PerfectoMiner](https://raw.githubusercontent.com/vasyahacker/perfectominer/master/logo.jpg)
 
 
