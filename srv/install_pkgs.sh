@@ -21,6 +21,9 @@ sudo apt-get -y install pxelinux syslinux-common
 echo -e "\e[32minstall dnsmasq for pxe\e[0m";
 sudo apt-get -y install dnsmasq
 ######################################################################
+echo -e "\e[32minstall socat for web-service\e[0m";
+sudo apt-get -y install socat
+######################################################################
 echo -e "\e[32mautoclean...\e[0m" && sudo apt-get autoclean
 sudo sync
 #####################################################################
