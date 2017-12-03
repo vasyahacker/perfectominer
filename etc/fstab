@@ -1,0 +1,12 @@
+proc            /proc           proc    defaults          0       0
+PARTUUID=ee9aa96e-01  /boot           vfat    defaults          0       2
+PARTUUID=ee9aa96e-02  /               ext4    defaults,noatime  0       1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+tmpfs    /srv/stats    tmpfs    defaults,noatime,nosuid,size=18m    0 0
+tmpfs    /tmp    tmpfs    defaults,noatime,nosuid,size=54m    0 0
+tmpfs    /var/tmp    tmpfs    defaults,noatime,nosuid,size=27m    0 0
+tmpfs    /var/log    tmpfs    defaults,noatime,nosuid,mode=0755,size=81m    0 0
+
+/srv/tftp/iso/ubuntu-x64.iso  /srv/tftp/nfs/ubuntu-x64  auto  loop,ro  0  0
+/srv/tftp/iso/perfecto.iso  /srv/tftp/nfs/perfecto  auto  loop,ro  0  0

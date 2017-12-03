@@ -1,0 +1,9 @@
+#!/bin/bash
+[ ! -d /srv/stats/$1/quests ] && echo "error" && exit 0
+FILE=/srv/stats/$1/quests/tmuxlog.sh
+cat > $FILE <<- EOF
+#!/bin/bash
+tmux capture-pane -pS -100 -E -1
+EOF
+chmod +x $FILE
+

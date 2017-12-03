@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="Perfecto Miner" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Perfecto Miner</title>
+    <link rel="stylesheet" href="/c/bootstrap.min.css">
+
+    <link href="/c/dashboard.css" rel="stylesheet">
+<!--   <script type="text/javascript">
+    function dynamic_load(type, content) {
+        var elem = document.createElement(type);
+        elem.type = (type === 'js') ? 'text/javascript' : 'text/css';
+        elem.innerHTML = content;
+        document.getElementsByTagName("head")[0].appendChild(elem);
+    }
+    function log(txt){ console.log(txt);}
+    var ws = new WebSocket("ws://pm.local:8080/getfile.sh");
+    //ws.binaryType = "blob";
+    ws.onopen = function() {
+      ws.send('dashboard.css');
+    };
+
+    ws.onclose = function(event) {
+      if (event.wasClean) {
+        log('Соединение закрыто чисто');
+      } else {
+        log('Обрыв соединения'); // например, "убит" процесс сервера
+      }
+      log('Код: ' + event.code + ' причина: ' + event.reason);
+    };
+    var d = "";
+    ws.onmessage = function(event) {
+      if(event.data == "not found") return;
+      log(event.data);
+      if(event.data.trim() == "trasfer complete")
+      {
+        dynamic_load('style',d);
+        d = "";
+        return;
+      }
+      d += event.data;
+    };
+
+    ws.onerror = function(error) {
+      log("Ошибка " + error.message);
+    };
+  </script> -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+
+  <body>
+  	 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">Perfecto miner</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Software</a>
+            </li>
+          </ul>
+
+        </nav>
+
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+          <h2>Dashboard</h2>
+
+          <div id="farm_list"></div>
+           <section class="row text-center placeholders">
+            <!--div class="col-6 col-sm-3 placeholder">
+              
+              <h4>Balance eth</h4>
+              <div id="ethbalance" class="text-muted"></div>
+            </div-->
+            <div class="col-6 col-sm-3 placeholder">
+              <pre id="traf" style="text-align:left;">Loading...</pre>
+            </div>
+            <!--div class="col-6 col-sm-3 placeholder">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div-->
+            <div class="col-6 col-sm-3 placeholder">
+              <div class="local_stats">
+                <p id="cpu">Loading...</p>
+                <p id="mem"></p>
+                <p id="disk"></p>
+              </div>
+            </div>
+          </section>
+       </main>
+      </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="farm_control" class="modal fade" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+ 	<script src="/j/jquery-3.2.1.min.js"></script>
+	<script src="/j/tether.min.js"></script>
+	<script src="/j/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="/j/ie10-viewport-bug-workaround.js"></script>
+  <script src="/j/jquery.form.min.js"></script>
+  <link href="/j/fh/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+  <script src="/j/fh/js/bootstrap-formhelpers.min.js"></script>
+  <script src="/j/pm.js"></script>
+  </body>
+</html>

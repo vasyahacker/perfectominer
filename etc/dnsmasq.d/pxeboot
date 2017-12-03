@@ -1,0 +1,37 @@
+########################################
+#/etc/dnsmasq.d/pxeboot
+
+log-dhcp
+log-queries
+
+# DNS (enabled)
+port=53
+dns-loop-detect
+
+# TFTP (enabled)
+enable-tftp
+tftp-root=/srv/tftp/
+tftp-lowercase
+
+# PXE (enabled)
+pxe-service=x86PC, "PXE Boot Menu (BIOS 00:00)", menu-bios/pxelinux
+pxe-service=6, "PXE Boot Menu (UEFI 00:06)", menu-efi32/syslinux
+pxe-service=x86-64_EFI, "PXE Boot Menu (UEFI 00:07)", menu-efi64/syslinux
+pxe-service=9, "PXE Boot Menu (UEFI 00:09)", menu-efi64/syslinux
+#dhcp-boot=menu-bios/pxelinux.0
+dhcp-match=set:x86_BIOS, option:client-arch, 0
+dhcp-match=set:x86_UEFI, option:client-arch, 6
+dhcp-match=set:x64_UEFI, option:client-arch, 7
+dhcp-match=set:x64_UEFI, option:client-arch, 9
+dhcp-boot=tag:x86_BIOS, menu-bios/pxelinux.0
+dhcp-boot=tag:x86_UEFI, menu-efi32/syslinux.0
+dhcp-boot=tag:x64_UEFI, menu-efi64/syslinux.0
+
+#dhcp-range=169.254.196. 192.168.1.0, proxy
+
+# do not give IPs that are in pool of DSL routers DHCP
+dhcp-range= 10.9.8.99,10.9.8.180, 1h
+
+# do not handle MACs that will get IP by DSL routers DHCP
+#dhcp-host=11:22:33:44:55:66, ignore # comment
+

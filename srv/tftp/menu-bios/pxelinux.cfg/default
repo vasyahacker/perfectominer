@@ -1,0 +1,65 @@
+########################################
+# /srv/tftp/menu-bios/pxelinux.cfg/default
+
+
+DEFAULT /vesamenu.c32 
+TIMEOUT 30
+#ONTIMEOUT 
+PROMPT 0
+NOESCAPE 1
+ALLOWOPTIONS 1
+
+
+# Set the boot menu to be 1024x768 with a nice background image. Be careful to
+# ensure that all your user's can see this resolution! Default is 640x480.
+MENU RESOLUTION 1024 768
+# This file must be in or under the '/var/lib/tftpboot' folder.
+MENU BACKGROUND logo.png
+
+menu hshift 5
+menu width 59
+
+menu title PXE Boot Menu
+
+menu color title        * #FFFFFFFF *
+menu color border       * #00000000 #00000000 none
+menu color sel          * #ffffffff #76a1d0ff *
+menu color hotsel       1;7;37;40 #ffffffff #76a1d0ff *
+menu color tabmsg       * #ffffffff #00000000 *
+menu color help         37;40 #ffdddd00 #00000000 none
+menu vshift 2
+menu rows 20
+menu helpmsgrow 25
+# The command line must be at least one line from the bottom.
+menu cmdlinerow 26
+menu timeoutrow 26
+menu tabmsgrow 28
+menu tabmsg Press ENTER to boot or TAB to edit a menu entry
+
+########################################
+LABEL Ubuntu LTS x64 4Miners
+    KERNEL /nfs/ubuntu-x64/casper/vmlinuz.efi
+    APPEND initrd=/nfs/ubuntu-x64/casper/initrd.lz  netboot=nfs  nfsroot=10.9.8.1:/srv/tftp/nfs/ubuntu-x64  file=/cdrom/preseed/ubuntu.seed  boot=casper  --  debian-installer/language=ru console-setup/layoutcode?=ru  locale=ru_RU
+    TEXT HELP
+        Boot to Ubuntu LTS x64 Live
+        k:ru, l:ru/en
+    ENDTEXT
+
+########################################
+LABEL Ubuntu Perfecto 4Miners
+    KERNEL /nfs/perfecto/casper/vmlinuz.efi
+    APPEND initrd=/nfs/perfecto/casper/initrd.lz  netboot=nfs  nfsroot=10.9.8.1:/srv/tftp/nfs/perfecto  file=/cdrom/preseed/ubuntu.seed amdgpu.vm_fragment_size=9 boot=casper  --  debian-installer/language=ru console-setup/layoutcode?=ru  locale=ru_RU
+    MENU DEFAULT
+    TEXT HELP
+        Boot to Perfecto miner linux (ubuntu 16.04 based)
+        k:ru, l:ru/en
+    ENDTEXT
+
+
+########################################
+LABEL Boot Local
+    localboot 0
+    TEXT HELP
+        Boot to local hard disk
+    ENDTEXT
+
