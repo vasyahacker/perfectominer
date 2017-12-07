@@ -4,7 +4,7 @@ HTML="`cat tpl/farm-item.tpl`"
 HTML="${HTML//\{/\$\{}"
 #HTML="${HTML//\}/}"
 workers=/srv/work/ers
-farms="`ls $workers`"
+farms="`(cd $workers && ls -d */ | cut -f1 -d'/')`"
 num=1
 for farm in $farms; do
 	wdir=$workers/$farm
