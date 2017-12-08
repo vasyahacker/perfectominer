@@ -81,5 +81,6 @@ sudo update-rc.d nfs-kernel-server enable;
 sudo update-rc.d rpcbind defaults;
 sudo service rpcbind restart;
 sudo service nfs-kernel-server restart;
+sudo update-rc.d ssh defaults
 sudo sync
 #
