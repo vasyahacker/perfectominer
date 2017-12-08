@@ -10,7 +10,11 @@ sudo sync \
 && sudo sync
 
 ######################################################################
-echo -e "\e[32minstall nfs-kernel-server for pxe\e[0m";
+echo -e "\e[32minstall common packages...\e[0m";
+sudo apt-get -y wicd wicd-curses git;
+######################################################################
+######################################################################
+echo -e "\e[32minstall nfs-kernel-server\e[0m";
 sudo apt-get -y install nfs-kernel-server;
 ######################################################################
 
