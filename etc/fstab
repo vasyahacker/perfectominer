@@ -8,5 +8,5 @@ tmpfs    /tmp    tmpfs    defaults,noatime,nosuid,size=54m    0 0
 tmpfs    /var/tmp    tmpfs    defaults,noatime,nosuid,size=27m    0 0
 tmpfs    /var/log    tmpfs    defaults,noatime,nosuid,mode=0755,size=81m    0 0
 
-/srv/tftp/iso/ubuntu-x64.iso  /srv/tftp/nfs/ubuntu-x64  auto  loop,ro  0  0
 /srv/tftp/iso/perfecto.iso  /srv/tftp/nfs/perfecto  auto  loop,ro  0  0
+/srv/tftp/iso/perfecto-12.8.iso  /srv/tftp/nfs/perfecto128  auto  loop,ro  0  0
