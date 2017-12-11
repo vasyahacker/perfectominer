@@ -2,7 +2,7 @@
 . .perfectolib.sh
 set_global()
 {
-  dir=/srv/work/globals1
+  dir=/srv/work/globals
   [ -e $dir/$2 ] && { 
     yN ans "$dir/$2 already exists, set new value?"
     [ "$ans" == "n" ] && return
