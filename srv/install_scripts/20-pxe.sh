@@ -4,12 +4,69 @@
 echo -e "\e[32minstall nfs-kernel-server\e[0m";
 sudo apt-get -y install nfs-kernel-server;
 ######################################################################
+echo -e "\e[32minstall dhcpcd5\e[0m";
+sudo apt-get -y install dhcpcd5
+[ -e /etc/dhcpcd.conf ] && mv /etc/dhcpcd.conf /etc/dhcpcd.conf.orig
+sudo cat <<EOT > /etc/dhcpcd.conf
+hostname
+clientid
+persistent
+option rapid_commit
+option domain_name_servers, domain_name, domain_search, host_name
+option classless_static_routes
+option ntp_servers
+require dhcp_server_identifier
+slaac private
+nohook lookup-hostname
+########################################
+interface eth0
+static ip_address=10.9.8.1/24
+EOT
+######################################################################
 echo -e "\e[32minstall syslinux-common for pxe\e[0m";
 sudo apt-get -y install pxelinux syslinux-common
 ######################################################################
 echo -e "\e[32minstall dnsmasq for pxe\e[0m";
 sudo apt-get -y install dnsmasq
 ######################################################################
+sudo cat <<EOT > /etc/dnsmasq.d/pxeboot
+########################################
+#/etc/dnsmasq.d/pxeboot
+
+log-dhcp
+log-queries
+
+# DNS (enabled)
+port=53
+dns-loop-detect
+
+# TFTP (enabled)
+enable-tftp
+tftp-root=/srv/tftp/
+tftp-lowercase
+
+# PXE (enabled)
+pxe-service=x86PC, "PXE Boot Menu (BIOS 00:00)", menu-bios/pxelinux
+pxe-service=6, "PXE Boot Menu (UEFI 00:06)", menu-efi32/syslinux
+pxe-service=x86-64_EFI, "PXE Boot Menu (UEFI 00:07)", menu-efi64/syslinux
+pxe-service=9, "PXE Boot Menu (UEFI 00:09)", menu-efi64/syslinux
+#dhcp-boot=menu-bios/pxelinux.0
+dhcp-match=set:x86_BIOS, option:client-arch, 0
+dhcp-match=set:x86_UEFI, option:client-arch, 6
+dhcp-match=set:x64_UEFI, option:client-arch, 7
+dhcp-match=set:x64_UEFI, option:client-arch, 9
+dhcp-boot=tag:x86_BIOS, menu-bios/pxelinux.0
+dhcp-boot=tag:x86_UEFI, menu-efi32/syslinux.0
+dhcp-boot=tag:x64_UEFI, menu-efi64/syslinux.0
+
+#dhcp-range=169.254.196. 192.168.1.0, proxy
+
+# do not give IPs that are in pool of DSL routers DHCP
+dhcp-range= 10.9.8.99,10.9.8.180, 1h
+
+# do not handle MACs that will get IP by DSL routers DHCP
+#dhcp-host=11:22:33:44:55:66, ignore # comment
+EOT
 sudo sync
 #####################################################################
 DST_ROOT=/srv/tftp
@@ -56,11 +113,21 @@ echo -e "\e[32menable port mapping and necessary services\e[0m";
 sudo service nfs-common stop;
 sudo service nfs-kernel-server stop;
 sudo service rpcbind stop;
+######################################################################
+[ -e /etc/exports ] && mv /etc/exports /etc/exports.orig
+sudo cat <<EOT > /etc/exports
+/srv/tftp/nfs/perfecto  10.9.8.0/24(ro,no_subtree_check,async,root_squash)
+/srv/tftp/iso 10.9.8.0/24(ro,sync,no_root_squash,no_subtree_check)
+/srv/work 10.9.8.0/24(rw,sync,no_root_squash,no_subtree_check)
+/srv/stats 10.9.8.0/24(rw,fsid=1,sync,no_subtree_check)
+EOT
+######################################################################
 sudo update-rc.d rpcbind enable;
 sudo update-rc.d nfs-common enable;
 sudo update-rc.d nfs-kernel-server enable;
 sudo update-rc.d rpcbind defaults;
 sudo service rpcbind restart;
 sudo service nfs-kernel-server restart;
+sudo exportfs -a
 sudo sync
 #

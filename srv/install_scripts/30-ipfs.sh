@@ -1,6 +1,13 @@
 #!/bin/bash
+echo -e "\e[32minstall ipget...\e[0m";
+( cd \
+&& wget https://dist.ipfs.io/ipget/v0.3.0/ipget_v0.3.0_linux-arm.tar.gz \
+&& tar xzf ipget_v0.3.0_linux-arm.tar.gz \
+&& cd ipget && sudo cp ./ipget /usr/local/bin \
+&& cd .. && rm -rf ipget \
+&& rm ipget_v0.3.0_linux-arm.tar.gz \
+)
 exit
-echo -e "\e[32minstall ipfs...\e[0m";
 ( cd \
 && wget https://dist.ipfs.io/ipfs-update/v1.5.2/ipfs-update_v1.5.2_linux-arm.tar.gz \
 && tar xzf ipfs-update_v1.5.2_linux-arm.tar.gz \

@@ -10,6 +10,7 @@
   <button type="button" data-target="/cgi-bin/givequest/restartminer.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Restart miner</button>
   <button type="button" data-target="/cgi-bin/givequest/switch2zec.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Switch to ZEC</button>
   <button type="button" data-target="/cgi-bin/givequest/switch2ethdcr.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Switch to ETH-DCR</button>
+  <button type="button" data-target="/cgi-bin/givequest/switch2vtc.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Switch to VTC</button>
   <div class="top-panel">  
     <span>{name}</span>
   </div> 
