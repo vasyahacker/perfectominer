@@ -37,19 +37,10 @@ menu tabmsgrow 28
 menu tabmsg Press ENTER to boot or TAB to edit a menu entry
 
 ########################################
-LABEL Ubuntu Perfecto128
-    KERNEL /nfs/perfecto128/casper/vmlinuz.efi
-    APPEND initrd=/nfs/perfecto128/casper/initrd.lz  netboot=nfs  nfsroot=10.9.8.1:/srv/tftp/nfs/perfecto128  file=/cdrom/preseed/ubuntu.seed amdgpu.vm_fragment_size=9 boot=casper  --  debian-installer/language=ru console-setup/layoutcode?=ru  locale=ru_RU
-    MENU DEFAULT
-    TEXT HELP
-        Boot to Perfecto Ubuntu LTS x64 Live
-        k:ru, l:ru/en
-    ENDTEXT
-
-########################################
 LABEL Ubuntu Perfecto 4Miners
     KERNEL /nfs/perfecto/casper/vmlinuz.efi
     APPEND initrd=/nfs/perfecto/casper/initrd.lz  netboot=nfs  nfsroot=10.9.8.1:/srv/tftp/nfs/perfecto  file=/cdrom/preseed/ubuntu.seed amdgpu.vm_fragment_size=9 boot=casper  --  debian-installer/language=ru console-setup/layoutcode?=ru  locale=ru_RU
+    MENU DEFAULT
     TEXT HELP
         Boot to Perfecto miner linux (ubuntu 16.04 based)
         k:ru, l:ru/en

@@ -1,5 +1,6 @@
 #!/bin/bash
-. .perfectolib.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $DIR/.perfectolib.sh
 #tdir=/tmp/btfs
 local_iso=/srv/tftp/iso/perfecto.iso
 iso_md5=/srv/tftp/iso/perfecto.md5

@@ -1,5 +1,6 @@
 #!/bin/bash
-. .perfectolib.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $DIR/.perfectolib.sh
 
 set_global "Default coins (ZEC or ETH-DCR)" "coins"
 

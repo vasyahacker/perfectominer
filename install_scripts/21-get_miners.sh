@@ -1,5 +1,6 @@
 #!/bin/bash
-. .perfectolib.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $DIR/.perfectolib.sh
 local_bin=/tmp/zecminer.tar.gz
 local_md5=/tmp/zecminer.md5
 bin_link="https://yadi.sk/d/SpLCX3yT3Rdk9K"
