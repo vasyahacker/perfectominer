@@ -4,7 +4,7 @@ scripts=./install_scripts/*.sh
 for script in $scripts; do
   [ -x $script ] && {
   	yN ans "Run $script?"
-  	[ "$ans" == "y" ] && $script && chmod -x $script
+  	[ "$ans" == "y" ] && $script #&& chmod -x $script
   }
 done
 #

@@ -1,17 +1,5 @@
 #!/bin/bash
 . .perfectolib.sh
-set_global()
-{
-  dir=/srv/work/globals
-  [ -e $dir/$2 ] && { 
-    yN ans "$dir/$2 already exists, set new value?"
-    [ "$ans" == "n" ] && return
-  }
-  printf "${CGR}$1${NC}: "
-  read text
-  echo "set '$text' to $dir/$2"
-  echo "$text" > $dir/$2
-}
 
 set_global "Default coins (ZEC or ETH-DCR)" "coins"
 

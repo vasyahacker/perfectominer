@@ -114,6 +114,7 @@ sudo service nfs-common stop;
 sudo service nfs-kernel-server stop;
 sudo service rpcbind stop;
 ######################################################################
+echo -e "\e[32mconfigure /etc/exports\e[0m";
 [ -e /etc/exports ] && mv /etc/exports /etc/exports.orig
 sudo cat <<EOT > /etc/exports
 /srv/tftp/nfs/perfecto  10.9.8.0/24(ro,no_subtree_check,async,root_squash)

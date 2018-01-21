@@ -72,3 +72,35 @@ read_num() {
   local  myresult=`echo "$mynum"`
   eval $__resultvar="'$myresult'"
 }
+
+yaget(){
+	dlink=`curl -s "https://cloud-api.yandex.net:443/v1/disk/public/resources/download?public_key=$1" | \
+			sed -e 's/^.*"href":"\([^"]*\)".*$/\1/' | grep "https://"`
+	[ -n "$dlink" ] && { 
+	printf "\n[${CGR}got direct link${NC}]\n"
+		wget -O $2 -c -t9 $dlink -q --show-progress 
+
+	} || printf "\n[${CRE}get direct link error${NC}]\n"
+}
+
+saveto()
+{
+	[ -e $2 ] && {
+	  Yn ans "$2 already exists, remove and download now?"
+	  [ "$ans" ==  "y" ] && rm -f $2
+	}
+	yaget "$1" "$2"
+}
+
+set_global()
+{
+  file="/srv/work/globals/$2"
+  [ -e $file ] && {
+    yN ans "$file already exists [`cat $file`], set new value?"
+    [ "$ans" == "n" ] && return
+  }
+  printf "${CGR}$1${NC}: "
+  read text
+  echo "set '$text' to $file"
+  echo "$text" > $file
+}

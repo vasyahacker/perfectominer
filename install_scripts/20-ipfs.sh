@@ -1,6 +1,7 @@
 #!/bin/bash
+exit 0
 echo -e "\e[32minstall ipget...\e[0m";
-( cd \
+( cd /tmp \
 && wget https://dist.ipfs.io/ipget/v0.3.0/ipget_v0.3.0_linux-arm.tar.gz \
 && tar xzf ipget_v0.3.0_linux-arm.tar.gz \
 && cd ipget && sudo cp ./ipget /usr/local/bin \
