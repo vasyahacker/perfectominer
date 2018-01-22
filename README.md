@@ -20,11 +20,11 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
 
 ## Install
 
-1. Flash the [latest raspbian lite image](https://downloads.raspberrypi.org/raspbian_lite_latest) via [Etcher](https://etcher.io/) to microSD card (>=4Gb)
+1. Insert microSD card (>=4GB) to cardreader and flash the [latest raspbian lite image](https://downloads.raspberrypi.org/raspbian_lite_latest) via [Etcher](https://etcher.io/)
 
 2. In the /boot partition create a (empty) file called "ssh" and "wpa_supplicant.conf"
 
-   wpa_supplicant.conf should contain the following details:
+   wpa_supplicant.conf should contain your wifi network details:
 
    ```ini
    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -34,16 +34,21 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
        key_mgmt=WPA-PSK
    }
    ```
+   where YOUR_NETWORK_NAME is your wifi SSID and YOUR_PASSWORD is your wifi password.  
 
-3. Turn on the rospberry pi, and wailt a few minutes
+3. Remove microSD from cardreader and insert to your RaspberryPI microcomputer (rpi), then turn it on, and wait for a few minutes
 
 4. Connect to rpi via ssh ([putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) for windows)
+
+   Server: raspberrypi.local or raspberrypi.lan
 
    Login: pi
 
    Password: raspberry
 
-   For linux or mac: open terminal and type `ssh pi@raspberrypi.local` 
+   For linux or mac: open terminal and type:
+
+   `ssh pi@raspberrypi.local` or `ssh pi@raspberrypi.lan`
 
 5. Install git and clone perfectominer: 
 
@@ -56,7 +61,7 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
 
    ```bash
    cd perfectominer
-   ./setup.sh
+   sudo ./setup.sh
    ```
 
 7. Reboot rpi 
@@ -65,5 +70,8 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
 
    ![PerfectoMiner](https://raw.githubusercontent.com/vasyahacker/perfectominer/master/srv/www/default/i/net-scheme.png)
 
-9. Turn on your rigs one by one in turn and watch your farm state: [http://raspberrypi.local](http://raspberrypi.local)
+9. Open BIOS settings on your rigs and set LAN booting, then turn on your rigs one after one and watch your rig state: [http://raspberrypi.local](http://raspberrypi.local) or [http://raspberrypi.lan](http://raspberrypi.lan)
+
+
+If you have any questions go to our [telegram channel](https://t.me/perfectominer)
 
