@@ -20,13 +20,13 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
 
 ## Install
 
-1. Flash [latest raspbian lite image](https://downloads.raspberrypi.org/raspbian_lite_latest) via [Etcher](https://etcher.io/) to microSD card (>=4Gb)
+1. Flash the [latest raspbian lite image](https://downloads.raspberrypi.org/raspbian_lite_latest) via [Etcher](https://etcher.io/) to microSD card (>=4Gb)
 
 2. In the /boot partition create a (empty) file called "ssh" and "wpa_supplicant.conf"
 
    wpa_supplicant.conf should contain the following details:
 
-   ```
+   ```ini
    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
    network={
        ssid="YOUR_NETWORK_NAME"
@@ -41,23 +41,29 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
 
    Login: pi
 
-   Password: raspbian
+   Password: raspberry
 
-   For linux or mac: open terminal and type `ssh pi@raspbianpi.local` 
+   For linux or mac: open terminal and type `ssh pi@raspberrypi.local` 
 
-5. Install git: `sudo apt update && sudo apt install git`
+5. Install git and clone perfectominer: 
 
-6. Get perfectominer sources:
-
-   `git clone https://github.com/vasyahacker/perfectominer.git`
-
-7. Run installation script and follow the instructions:
-
+   ```bash
+   sudo apt update && sudo apt install git
+   git clone https://github.com/vasyahacker/perfectominer.git
    ```
+
+6. Run installation script and follow the instructions:
+
+   ```bash
    cd perfectominer
    ./setup.sh
    ```
 
-8. Reboot rpi 
+7. Reboot rpi 
 
-9. Connect ethernet wire to rpi and enjoy!
+8. Connect rpi to your network according to the scheme:
+
+   ![PerfectoMiner](https://raw.githubusercontent.com/vasyahacker/perfectominer/master/srv/www/default/i/net-scheme.png)
+
+9. Turn on your rigs one by one in turn and watch your farm state: [http://raspberrypi.local](http://raspberrypi.local)
+
