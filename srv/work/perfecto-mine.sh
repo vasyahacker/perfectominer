@@ -13,7 +13,7 @@ DEFAULT_TZ="Europe/Moscow"
 echo "Cheking my working dir..."
 if [ ! -d "$mydir" ]; then
    mkdir -p $mydir
-   mynum=`ls -1 /work/ers | wc -l`
+   mynum=`(cd /work/ers && ls -d */ | cut -f1 -d'/' | wc -l)`
    echo "rig`printf "%02d\n" $mynum`" > $mydir/name
    echo "Setup GPIO pin..."
    mygpio=`sed "${mynum}q;d" /work/globals/gpio-list`
