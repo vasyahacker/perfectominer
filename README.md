@@ -73,5 +73,9 @@ PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcompute
 9. Open BIOS settings on your rigs and set LAN booting, then turn on your rigs one after one and watch your rig state: [http://raspberrypi.local](http://raspberrypi.local) or [http://raspberrypi.lan](http://raspberrypi.lan)
 
 
-If you have any questions go to our [telegram channel](https://t.me/perfectominer)
+### Links
+
+- [Telegram channel](https://t.me/perfectominer)
+- [Forum](https://bitcointalk.org/index.php?topic=2540589.msg25905776#msg25905776)
+- [Forum[RUS]](https://bitcointalk.org/index.php?topic=2466052.msg25257900#msg25257900)
 
