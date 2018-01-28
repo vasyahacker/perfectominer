@@ -1,5 +1,5 @@
 #!/bin/bash
-[ ! -d /sys/class/drm/card0/device/hwmon ] && exit 0;
+#[ ! -d /sys/class/drm/card0/device/hwmon ] && exit 0;
 ls -1 /sys/class/drm/card*/device/hwmon/hwmon*/pwm1 | while read hwmon; do
   TEMP1_INPUT=`echo $hwmon | sed -e "s/pwm1/temp1_input/"`;
   CARD_BASE_PATH=`echo $hwmon | head -c 28`;
