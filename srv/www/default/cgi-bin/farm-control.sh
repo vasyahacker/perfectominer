@@ -8,6 +8,7 @@ HTML="`cat tpl/farm-control.tpl`"
 wdir="/srv/work/ers/$ID"
 sdir="/srv/stats/$ID"
 name=`cat $wdir/name`
+[ -e $wdir/descr ] && descr=`cat $wdir/descr` || descr="no rig description"
 IP="`cat $sdir/ip`"
 state=`cgi-bin/farm-state.sh $ID`
 gpio=`cat $wdir/gpio || echo "none"`

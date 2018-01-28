@@ -11,11 +11,12 @@
   <button type="button" data-target="/cgi-bin/givequest/switch2zec.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Switch to ZEC</button>
   <button type="button" data-target="/cgi-bin/givequest/switch2ethdcr.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Switch to ETH-DCR</button>
   <button type="button" data-target="/cgi-bin/givequest/switch2vtc.sh?{ID}" class="btn" onClick="btn_farm_control(event);">Switch to VTC</button>
+  <button type="button" data-target="/cgi-bin/set-rig-descr.sh?{ID}" class="btn" onClick="btn_set_descr(event);">Set rig description</button>
   <div class="top-panel">  
-    <span>{name}</span>
+    <span>{name} - {descr}</span>
   </div> 
 
-  <span>IP: {IP} MAC: {ID}</span>
+  <span>[{descr}] IP: {IP} MAC: {ID}</span>
   <span id="farm_stats">{farmstats}</span>
   <ul class="nav nav-tabs" role="tablist" id="rigTab">
     <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#miner">Miner log</a></li>

@@ -14,14 +14,15 @@ for farm in $farms; do
 	Currency="`cat $wdir/coins`"
 	GPUs="hz"
 	Hashrate="hz"
+	[ -e $wdir/descr ] && descr="`cat $wdir/descr`" || descr="no rig description"
   temp="`cat $sdir/gpustemp | awk '$1=$1'`"
   Temp=""
   IFS=$'\r\n' GLOBIGNORE='*' command eval  'TEMPS=($(echo "$temp"))'
   for i in "${TEMPS[@]}"; do
-      [ "$i" -ge 0 -a "$i" -le 65 ] && color="green"
+      [ "$i" -ge 0 -a "$i" -le 65 ] && color="black"
       [ "$i" -ge 66 -a "$i" -le 79 ] && color="yellow"
       [ "$i" -ge 80 -a "$i" -le 120 ] && color="red"
-      Temp="${Temp}<span class="$color">$i</span>"
+      Temp="${Temp} <span class="$color">$i</span>"
   done
 	IP="hz"
 	if [ -d $sdir ];then
