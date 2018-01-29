@@ -103,6 +103,17 @@ function setupRig(mac)
   });
 }
 
+function btn_set_descr(event)
+{
+	var target = $( event.target );
+	var txt = target.text();
+	var name = target.siblings(".modal-title").text();
+	if(!confirm(txt+" "+name+"?")) return false;
+	var descr = prompt("New rig descr", "");
+	var lnk = target.attr("data-target")+"&"+descr;
+	$.get(lnk);
+}
+
 function btn_farm_control(event)
 {
 	var target = $( event.target );
