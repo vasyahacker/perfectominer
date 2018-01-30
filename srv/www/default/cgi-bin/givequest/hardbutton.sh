@@ -7,7 +7,7 @@ sdir="/srv/stats/$1/quests"
 gpio=`cat $wdir/gpio`
 echo "$gpio" > /sys/class/gpio/export
 echo "out" > /sys/class/gpio/gpio$gpio/direction
-echo "1" > /sys/class/gpio/gpio$gpio/value
-sleep 1
 echo "0" > /sys/class/gpio/gpio$gpio/value
+sleep 1
+echo "1" > /sys/class/gpio/gpio$gpio/value
 [ -d $sdir ] && echo "`date`: Hard button pressed" >> $sdir/log
