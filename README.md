@@ -4,9 +4,11 @@
 
 PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcomputer.
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/t86GLw61Oso/0.jpg)](https://www.youtube.com/watch?v=t86GLw61Oso)
+
 - Centralized management of all functions of rigs and monitoring (currency selection, overclocking of video cards and coolers, hardware shutting down / rebooting);
 
-- Saving money: you do not need flash and hard drives, also hardware WatchDog for 20 rigs is already built into the device.
+- Saving money: you do not need flash and hard drives, also hardware WatchDog for 20 rigs is already built into the device (if your connect arduino relay).
 
 - Save time: there is no need to install and reinstall, as well as configure the OS, drivers, you do not need to monitor the updates of the mining programs.
 
