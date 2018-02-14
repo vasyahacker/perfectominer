@@ -16,7 +16,7 @@
   <div class="top-panel">  
     <span>{name} - {descr}</span>
   </div> 
-
+  <div style="clear:both;"></div>
   <ul class="nav nav-tabs" role="tablist" id="rigTab">
     <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#miner">Miner Log</a></li>
     <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#quest_log">Quest Log</a></li>
@@ -30,18 +30,18 @@
         {minerlog}
       </div>
     </div>
-  	<div id="quest_log" role="tabpanel" class="tab-pane fade">
+    <div id="quest_log" role="tabpanel" class="tab-pane fade">
       {questlog}
     </div>
-  	<div id="overclock" role="tabpanel" class="tab-pane fade">
+    <div id="overclock" role="tabpanel" class="tab-pane fade">
       {overclockform}
     </div>
-  	<div id="hardware" role="tabpanel" class="tab-pane fade">
+    <div id="hardware" role="tabpanel" class="tab-pane fade">
       <p>GPIO pin: <b>{gpio}</b></p>
       <img src="/i/gpio-numbers-pi2.png" width="90%">
       <iframe id="farm_lshw" marginwidth="0" marginheight="0" width="100%" height="600" frameborder=1 src="cgi-bin/farm-lshw.sh?{ID}"></iframe>
     </div>
-  	<div id="top" role="tabpanel" class="tab-pane fade">
+    <div id="top" role="tabpanel" class="tab-pane fade">
       {toplog}
     </div>
   </div>
