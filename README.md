@@ -2,7 +2,7 @@
 
 ------
 
-PerfectoMiner is a GPU management system based on the Raspberry Pi3 microcomputer.
+PerfectoMiner is a GPU mining management system based on the Raspberry Pi3 microcomputer.
 
 - Centralized management of all functions of rigs and monitoring (currency selection, overclocking of video cards and coolers, hardware shutting down / rebooting);
 
