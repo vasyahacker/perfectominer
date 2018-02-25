@@ -3,11 +3,17 @@
 FILE=/srv/stats/$1/quests/reboot
 cat > $FILE <<- EOF
 #!/bin/bash
+rbt(){
+	umount -l -k /work/stats
+	#shutdown -r now
+	sleep 1
+	echo 1 > /proc/sys/kernel/sysrq 
+	echo b > /proc/sysrq-trigger
+}
 echo "Rebooting.."
-rm -f /myquests/reboot
 touch /work/stats/$1/offline
-#shutdown -r now
-echo 1 > /proc/sys/kernel/sysrq 
-echo b > /proc/sysrq-trigger 
+sync
+#rm -f /myquests/reboot
+rbt >/dev/null 2>&1 &
 EOF
 chmod +x $FILE
