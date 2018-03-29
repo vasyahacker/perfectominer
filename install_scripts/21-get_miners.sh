@@ -18,9 +18,9 @@ rm $local_bin $local_md5
 
 local_bin=/tmp/claymore.tar.gz
 local_md5=/tmp/claymore.md5
-bin_link="https://yadi.sk/d/kPjqgZDf3Rdz8T"
-fol_name="Claymore's Dual Ethereum+Decred_Siacoin_Lbry_Pascal AMD+NVIDIA GPU Miner v10.2 - LINUX"
-md5_link="https://yadi.sk/d/O2XmB8jS3Rdz2j"
+bin_link="https://yadi.sk/d/l_AMet0N3Truoy"
+fol_name="Claymore's Dual Ethereum+Decred_Siacoin_Lbry_Pascal_Blake2s_Keccak AMD+NVIDIA GPU Miner v11.5 - LINUX"
+md5_link="https://yadi.sk/d/P1yDHID83TruoH"
 printf "Getting $fol_name.."
 saveto "$bin_link" "$local_bin"
 saveto "$md5_link" "$local_md5"

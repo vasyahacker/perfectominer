@@ -74,6 +74,6 @@ echo "Set fans speed and overclocking..."
 
 echo "Starting  miner..."
 /work/select-miner.sh
-
+rm -f $sdir/reboot_flag
 echo "`date`" >> $qdir/log
 echo "Started!" >> $qdir/log

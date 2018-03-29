@@ -11,7 +11,7 @@ eexit        0
 tempunits    c
 log          0
 logfile      /dev/null
-api          127.0.0.1:42000
+api          0.0.0.0:42000
 
 # The miner start work from this server
 # When the server is fail, the miner will try to reconnect 3 times

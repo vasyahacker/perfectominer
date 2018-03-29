@@ -17,3 +17,5 @@ sync
 rbt >/dev/null 2>&1 &
 EOF
 chmod +x $FILE
+touch /srv/stats/$1/reboot_flag
+

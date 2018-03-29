@@ -21,7 +21,7 @@ INTENSITY=""
 for ((i=0; i<$numcudadevs; i++))
 {
   DEVICES="$DEVICES $i"
-  INTENSITY="$INTENSITY 64"
+  INTENSITY="$INTENSITY 63"
 }
 
 re='\{([0-9a-zA-Z\-]+)\}'
